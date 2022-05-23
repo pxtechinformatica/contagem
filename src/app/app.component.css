@@ -31,6 +31,7 @@
 .texto {
   font-size: 1.2em;
   color: #2B5B40;
+  text-align: justify;
 }
 
 p{
@@ -64,4 +65,14 @@ p{
 
 .espaco-card mat-card {
   padding: 40px 25px 30px;
+}
+
+.tela-mobile {
+  padding-top: 0.5 em;
+  padding-bottom: 1em;
+}
+
+.container-mobile {
+  padding-left: 1em;
+  padding-right: 1em;
 }

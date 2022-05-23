@@ -10,12 +10,14 @@ import { Subscription, interval } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
+  mobile: boolean = false;
+
   public dateNow = new Date();
   public dDay = new Date('Jun 01 2022 00:00:00');
   milliSecondsInASecond = 1000;
   hoursInADay = 24;
   minutesInAnHour = 60;
-  SecondsInAMinute  = 60;
+  SecondsInAMinute = 60;
 
   public timeDifference: any;
   public secondsToDday: any;
@@ -24,23 +26,26 @@ export class AppComponent implements OnInit, OnDestroy {
   public daysToDday: any;
 
 
-  private getTimeDifference () {
-      this.timeDifference = this.dDay.getTime() - new  Date().getTime();
-      this.allocateTimeUnits(this.timeDifference);
+  private getTimeDifference() {
+    this.timeDifference = this.dDay.getTime() - new Date().getTime();
+    this.allocateTimeUnits(this.timeDifference);
   }
 
-private allocateTimeUnits (timeDifference: any) {
-      this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
-      this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
-      this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
-      this.daysToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
-}
+  private allocateTimeUnits(timeDifference: any) {
+    this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
+    this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
+    this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
+    this.daysToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
+  }
 
-ngOnInit() {
+  ngOnInit() {
     this.subscription = interval(1000).subscribe(x => { this.getTimeDifference(); });
-}
+    if (screen.width < 640) {
+      this.mobile = true;
+    }
+  }
 
- ngOnDestroy() {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
- }
+  }
 }
