@@ -8,4 +8,60 @@
 .timer span {
   font-size: 2em;
   margin: 0 3px 0 15px;
+  background-color: #f4f7fc;
+}
+
+.container {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.cor-card {
+  background-color: #ffffff;
+}
+
+.titulo {
+  font-size: 3em;
+  margin: 0;
+  font-weight: 800;
+  font-family: 'Roboto', roboto;
+  color: #008037;
+}
+
+.texto {
+  font-size: 1.2em;
+  color: #2B5B40;
+}
+
+p{
+  margin: 0.5em;
+}
+
+.titulo-card {
+  font-size: 1.4em;
+  margin-bottom: 0;
+  font-weight: 800;
+  font-family: 'Roboto', roboto;
+  color: #008037;
+}
+
+.cor-card-vermelho {
+  background-color: #FF2B05;
+}
+
+.cor-card-verde {
+  background-color: #008037;
+}
+
+
+.titulo-branco {
+  font-size: 3em;
+  margin: 0;
+  font-weight: 800;
+  font-family: 'Roboto', roboto;
+  color: #ffffff;
+}
+
+.espaco-card mat-card {
+  padding: 40px 25px 30px;
 }
